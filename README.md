@@ -15,3 +15,9 @@
   git --checkout <filename>
   当"工作区"文件产出的时候，并且提交到了"暂存区"，想要恢复文件
   git reset HEAD <filename>
+
+#链接远程仓库
+  git remote add origin 仓库地址    链接仓库
+  git remote rm origin              删除仓库
+  git push -u master origin         第一次推送到仓库
+  git push master origin 

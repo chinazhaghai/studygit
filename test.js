@@ -5,3 +5,4 @@ var mmeda = 12321312;
 var woqu  = 1232131
 var dump = "dump"
 var demo = 'demo'
+var c = stupid demo ;

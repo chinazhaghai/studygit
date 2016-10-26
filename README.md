@@ -24,3 +24,12 @@
 
 #克隆远程仓库
   git clone 远程仓库地址
+
+#分支
+  git branch               查看所有分支
+  git branch fenzhi        添加分支
+  git checkout -b fenzhi   -b是创建并且切换分支
+  git branch -d fenzhi     删除分支
+
+  git chechout master
+  git merge fenzhi         将分支合并到当前分支上

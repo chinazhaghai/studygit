@@ -13,14 +13,14 @@
 + 说明：对变量值进行验证，是否合法
 + 参数:变量$var  过滤方式$filter 可选项$option
 + 过滤方式:
-          + FILTER_VALIDATE_BOOLEAN 验证是否是布尔值
-          + FILTER_VALIDATE_EMAIL   验证是否是邮箱地址
-          + FILTER_VALIDATE_FLOAT   验证是否为浮点型     $option decimal
-          + FILTER_VALIDATE_INT     验证是否为整型       $option min_range max_range
-          + FILTER_VALIDATE_IP      验证是否为IP地址
-          + FILTER_VALIDATE_MAC     验证MAC地址
-          + FILTER_VALIDATE_REGEXP  验证是否为正则
-          + FILTER_VALIDATE_URL     验证是否是地址
++ FILTER_VALIDATE_BOOLEAN 验证是否是布尔值
++ FILTER_VALIDATE_EMAIL   验证是否是邮箱地址
++ FILTER_VALIDATE_FLOAT   验证是否为浮点型     $option decimal
++ FILTER_VALIDATE_INT     验证是否为整型       $option min_range max_range
++ FILTER_VALIDATE_IP      验证是否为IP地址
++ FILTER_VALIDATE_MAC     验证MAC地址
++ FILTER_VALIDATE_REGEXP  验证是否为正则
++ FILTER_VALIDATE_URL     验证是否是地址
 ##拓展:strip_tag
 + 删除HTML 和 PHP 的标签
 
@@ -61,14 +61,14 @@
 + 一个数字，用于标示要占用的最小宽度
 + 精度说明符，标示浮点数小数点位数，四舍五入
 + 类型说明符:
-           + b ：二进制
-           + c : 字符ASCII
-           + d : 十进制整数
-           + e : 科学计数法
-           + f : 浮点数
-           + o : 八进制
-           + s : 字符串
-           + x : 十六进制
++ b ：二进制
++ c : 字符ASCII
++ d : 十进制整数
++ e : 科学计数法
++ f : 浮点数
++ o : 八进制
++ s : 字符串
++ x : 十六进制
 
 ##拓展:sprint_r($var,$return)
 + 如果 $return 为TURE的时候，则直接返回，并不输出
@@ -79,8 +79,8 @@
 #debug
 + debug_print_backtrace():打印出一个页面的调用过程
 + error_log($msg,$msg_type,$dest):
-          + $msg_type:
-          + 0 : 发送到PHP的系统日志
-          + 1 : 发送到设置的邮件里
-          + 2 : 发送到文件里
-          + 3 : 发送到SAPI的日志处理程序中
++ $msg_type:
++ 0 : 发送到PHP的系统日志
++ 1 : 发送到设置的邮件里
++ 2 : 发送到文件里
++ 3 : 发送到SAPI的日志处理程序中

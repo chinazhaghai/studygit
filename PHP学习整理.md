@@ -69,3 +69,18 @@
            * o : 八进制
            * s : 字符串
            * x : 十六进制
+
+##拓展:sprint_r($var,$return)
++ 如果 $return 为TURE的时候，则直接返回，并不输出
++
+#配置文件
++ 作用：定义常量  建立站点范围内的设置  创建用户自定义函数  管理错误
+
+#debug
++ debug_print_backtrace():打印出一个页面的调用过程
++ error_log($msg,$msg_type,$dest):
+          * $msg_type:
+          * 0 : 发送到PHP的系统日志
+          * 1 : 发送到设置的邮件里
+          * 2 : 发送到文件里
+          * 3 : 发送到SAPI的日志处理程序中

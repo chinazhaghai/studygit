@@ -130,7 +130,21 @@
 
 #调整浏览器缓存
 + header() 可以调整浏览器的缓存
-> Last-Modified 最后修改的时间
-> Expires       过期时间
-> Pragma        编译提示
-> Cache-Control 缓存控制
++ Last-Modified 最后修改的时间
++ Expires       过期时间
++ Pragma        编译提示
++ Cache-Control 缓存控制
+```
++ header("Expires:Mon,26 Jul 1997 05:00:00 GMT");
++ header("Pragma:no-cache");
++ header("Cache-Control:no-cache");
++ header("Last-modified:Mon,26 Jul 1997 05:00:00 GMT");
+```
+## Cache-Control 指令
++ public           可以缓存到任何地方
++ private          只能被浏览器缓存
++ no-cache         不能在任何地方缓存
++ must-revalidate  缓存必须检查更新版本
++ proxy-revalidate 代理缓存必须检查更新版本
++ max-age          内容能够被缓存的时间，以秒为单位表示
++ s-maxage         覆盖共享缓存的max-age值设置

@@ -88,3 +88,22 @@
 + 1 : 发送到设置的邮件里
 + 2 : 发送到文件里
 + 3 : 发送到SAPI的日志处理程序中
+
+#mode_rewrite 优化SEO
++ 说明：mode_rewrite 是一种用于给服务器发送指令的工具，当用户访问一个连接URL的时候，服务器将会提供另外的资源。mode_rewrite使用正则表达式，因此可以根据需要处理尽量复杂的链接地址模式
++ 修改Apache的两种方式：1.修改Apache的全局配置文件或者创建目录相关的文件。全局配置文件叫做httpd.conf,放置在confg目录内，她用于规范Apache网站服务器的运行规则；2..htaccess放置在web目录里，它使用来规范当前目录和子目录内Apache如何运行
+
+##允许.htaccess重写
++ httpd.confg
++ <Directory />  此处的(/)指的是根目录
++ AllowOverride None
++ </Directory>
+
+###AllowOverride
++ AuthConfig 用于使用授权和验证
++ FileInfo 用于执行重定向和URL地址重写
++ Indexes 用于列举目录内容
++ Limit 用户限制对目录的访问
++ Options 用于设置目录的行为，比如执行CGI脚本或者列举目录内容的能力
++ All 所有
++ None 无

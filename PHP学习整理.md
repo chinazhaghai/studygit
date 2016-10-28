@@ -127,3 +127,10 @@
 + </IfModule>
 ```
 + 匹配category/23 或者category/23/ 转为 category.php?id=23
+
+#调整浏览器缓存
++ header() 可以调整浏览器的缓存
+> Last-Modified 最后修改的时间
+> Expires       过期时间
+> Pragma        编译提示
+> Cache-Control 缓存控制

@@ -95,10 +95,11 @@
 
 ##允许.htaccess重写
 + httpd.confg
+```
 + <Directory />  此处的(/)指的是根目录
 + AllowOverride None
 + </Directory>
-
+```
 ###AllowOverride
 + AuthConfig 用于使用授权和验证
 + FileInfo 用于执行重定向和URL地址重写
@@ -107,3 +108,11 @@
 + Options 用于设置目录的行为，比如执行CGI脚本或者列举目录内容的能力
 + All 所有
 + None 无
+
+#激活URL重写
+```
++ <IfModule mode_rewrite.c>
++ RewriteEngine on
++ </IfModule>
+
+```

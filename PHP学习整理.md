@@ -96,7 +96,7 @@
 ##允许.htaccess重写
 + httpd.confg
 ```
-+ <Directory />  此处的(/)指的是根目录
++ <Directory />  #此处的(/)指的是根目录，#号表示注释
 + AllowOverride None
 + </Directory>
 ```

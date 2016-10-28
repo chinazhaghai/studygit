@@ -110,9 +110,20 @@
 + None 无
 
 #激活URL重写
++ 首先检查该模块是否加载并且打开重写引擎
 ```
 + <IfModule mode_rewrite.c>
 + RewriteEngine on
 + </IfModule>
 
 ```
++ RewriteRule match rewrite
++ eg:RewriteRule somepage.php other.php 访问somepage.php的时候，展示的是other.php的内容
+
+```
++ <IfModule mode_rewrite.c>
++ RewriteEngine on
++ RewriteRule ^category/([0-9]+)/?$ category.php?id=$1
++ </IfModule>
+```
++ 匹配category/23 或者category/23/ 转为 category.php?id=23

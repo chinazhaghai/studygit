@@ -12,7 +12,7 @@
 #filter_var
 + 说明：对变量值进行验证，是否合法
 + 参数:变量$var  过滤方式$filter 可选项$option
-+ ##过滤方式:
+##过滤方式:
 + FILTER_VALIDATE_BOOLEAN 验证是否是布尔值
 + FILTER_VALIDATE_EMAIL   验证是否是邮箱地址
 + FILTER_VALIDATE_FLOAT   验证是否为浮点型     $option decimal
@@ -60,7 +60,7 @@
 + 对齐说明符（默认右对齐，使用减号（-）可以实现左对齐）
 + 一个数字，用于标示要占用的最小宽度
 + 精度说明符，标示浮点数小数点位数，四舍五入
-+ ##类型说明符:
+##类型说明符:
 + b ：二进制
 + c : 字符ASCII
 + d : 十进制整数
@@ -79,7 +79,7 @@
 #debug
 + debug_print_backtrace():打印出一个页面的调用过程
 + error_log($msg,$msg_type,$dest):
-+ ##$msg_type:
+##$msg_type:
 + 0 : 发送到PHP的系统日志
 + 1 : 发送到设置的邮件里
 + 2 : 发送到文件里

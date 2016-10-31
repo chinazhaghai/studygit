@@ -198,3 +198,25 @@
 + 类必须实现全部接口的方法
 
 ###拓展：复制对象，使用clone $b = clone $a; 复制对象 ，而不是引用
+
+#trait
++ 解决了类只能单继承的问题
++ 惯例：以小写的t开头
++ 不能被初始化
++ 通过use关键字在一个类的定义中为这个类添加一个trait
++ 包含多个trait 就用逗号隔开
++ 优先级问题 :当trait 和 类有相同的方法
++ 1.如果类的方法时自身的，那么类的方法优先级比trait高
++ 2.如果类的方法时继承的，那么trait的优先级高
+```
+trait tSomeTrait{
+  function someFunction(){
+
+  }
+}
+class SomeClass{
+  use tSomeTrait;
+
+}
+```
+###拓展:get_object_vars($obj) 获取对象的属性和值  get_class_methods($obj) 获取方法

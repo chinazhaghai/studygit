@@ -249,3 +249,19 @@ $pdo = new PDO('dsn','username','password'); # dsn(Data Source Name)
 + query 查询结果
 + rowCount() 返回查询了多少条记录 mysql_num_rows()
 + mysql_real_escape_string 防止SQL注入  $pdo->quoto();
+
+
+#网络编程 socket
++ 可以将socket理解为两台计算机相互通信的通道
++ fsockopen($url,[$port],[$err_num],[$err_str],[$timeout]); 返回一个文件指针
++ 常用端口表:
++ 21:FTP
++ 22:SSH
++ 23:Telnet
++ 25:SMTP
++ 80:web
++ 81:web(alternate)
++ 110:POP
++ 143:IMAP
++ 389:LDAP
++ 443:SSL

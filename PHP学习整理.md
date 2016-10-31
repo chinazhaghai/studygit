@@ -220,3 +220,32 @@ class SomeClass{
 }
 ```
 ###拓展:get_object_vars($obj) 获取对象的属性和值  get_class_methods($obj) 获取方法
+
+#文件操作
++ file_exists($file) 判断文件是否存在
++ is_file($file)     判断是否是文件
++ fopen($file,'w')   以写方式打开文件
++ fwrite($file,$content) 写入文件
++ fclose($file)      关闭文件     
+
+
+#PDO (PHP Data Object)
++ PDO是PHP与数据库进行交互的一种替代方式
++ PDO可以对MYSQL,PostgreSQL,SQLite,Oracle,Microsoft SQL Server以及更多的数据库进行访问
++ 要确定PHP支持哪些数据库，调用PDO类的getAvailableDrivers()
+```
+#链接数据库
+$pdo = new PDO('dsn','username','password'); # dsn(Data Source Name)
+#DSN是一个指明以下多条信息的字符串
+#1.需要使用的数据库驱动
+#2.数据库名
+#3.如果使用SQLite，还需要提供数据库文件的路径
+#4.主机名(可选)
+#5.端口号(可选)
+#eg. driver:name=value1;name2=value2
+#eg. mysql:dbname=user;host=localhost
+```
++ 执行查询使用 $pdo->exec($sql) 返回影响到的行数
++ query 查询结果
++ rowCount() 返回查询了多少条记录 mysql_num_rows()
++ mysql_real_escape_string 防止SQL注入  $pdo->quoto();

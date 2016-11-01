@@ -254,7 +254,7 @@ $pdo = new PDO('dsn','username','password'); # dsn(Data Source Name)
 #网络编程 socket
 + 可以将socket理解为两台计算机相互通信的通道
 + fsockopen($url,[$port],[$err_num],[$err_str],[$timeout]); 返回一个文件指针
-+ 常用端口表:
+##常用端口表:
 + 21:FTP
 + 22:SSH
 + 23:Telnet
@@ -265,3 +265,20 @@ $pdo = new PDO('dsn','username','password'); # dsn(Data Source Name)
 + 143:IMAP
 + 389:LDAP
 + 443:SSL
+##parse_url() 数组 eg:http://www.baidu.com?name=user#demo
++ scheme:协议名 -> http
++ host:主机名   -> www.baidu.com
++ port:端口     -> 80
++ path:文件路径 -> index.html
++ query:查询参数-> name=user
++ fragment:    -> #demo
+
+##常用HTTP 状态码
++ 200:OK
++ 204:No content
++ 400:Bad request
++ 401:Unauthorized
++ 403:forbidden
++ 404:Not Found
++ 408:timeout
++ 500:Internal server error

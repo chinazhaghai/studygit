@@ -1,0 +1,165 @@
+{
+	"groups": [
+		{
+			"keys": "bg_jpg,description_json,logo_png,clock_png,title_png,arrow_png,btn_png,first-question_png,first-question-title_png,indicater_png,first-timeline_png,next-btn_jpg,second-question-title_png,second-question_png,second-timeline_png,third-question-title_png,third-question_png,third-timeline_png,forth-question-title_png,forth-question_png,fifth-question-title_png,result-btn_jpg,qrcode_png,res-shopping_png,res-sports_png,res-reading_png,res-eating_png,res-other_png,res-circle_png,more-btn_png,save-image_png",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"name": "bg_jpg",
+			"type": "image",
+			"url": "assets/bg.jpg"
+		},
+		{
+			"name": "description_json",
+			"type": "json",
+			"url": "config/description.json"
+		},
+		{
+			"name": "logo_png",
+			"type": "image",
+			"url": "assets/logo.png"
+		},
+		{
+			"name": "clock_png",
+			"type": "image",
+			"url": "assets/clock.png"
+		},
+		{
+			"name": "title_png",
+			"type": "image",
+			"url": "assets/title.png"
+		},
+		{
+			"name": "arrow_png",
+			"type": "image",
+			"url": "assets/arrow.png"
+		},
+		{
+			"name": "btn_png",
+			"type": "image",
+			"url": "assets/btn.png"
+		},
+		{
+			"name": "first-question_png",
+			"type": "image",
+			"url": "assets/first-question.png"
+		},
+		{
+			"name": "first-question-title_png",
+			"type": "image",
+			"url": "assets/first-question-title.png"
+		},
+		{
+			"name": "indicater_png",
+			"type": "image",
+			"url": "assets/indicater.png"
+		},
+		{
+			"name": "first-timeline_png",
+			"type": "image",
+			"url": "assets/first-timeline.png"
+		},
+		{
+			"name": "next-btn_jpg",
+			"type": "image",
+			"url": "assets/next-btn.jpg"
+		},
+		{
+			"name": "second-question-title_png",
+			"type": "image",
+			"url": "assets/second-question-title.png"
+		},
+		{
+			"name": "second-question_png",
+			"type": "image",
+			"url": "assets/second-question.png"
+		},
+		{
+			"name": "second-timeline_png",
+			"type": "image",
+			"url": "assets/second-timeline.png"
+		},
+		{
+			"name": "third-question-title_png",
+			"type": "image",
+			"url": "assets/third-question-title.png"
+		},
+		{
+			"name": "third-question_png",
+			"type": "image",
+			"url": "assets/third-question.png"
+		},
+		{
+			"name": "third-timeline_png",
+			"type": "image",
+			"url": "assets/third-timeline.png"
+		},
+		{
+			"name": "forth-question-title_png",
+			"type": "image",
+			"url": "assets/forth-question-title.png"
+		},
+		{
+			"name": "forth-question_png",
+			"type": "image",
+			"url": "assets/forth-question.png"
+		},
+		{
+			"name": "fifth-question-title_png",
+			"type": "image",
+			"url": "assets/fifth-question-title.png"
+		},
+		{
+			"name": "result-btn_jpg",
+			"type": "image",
+			"url": "assets/result-btn.jpg"
+		},
+		{
+			"name": "qrcode_png",
+			"type": "image",
+			"url": "assets/qrcode.png"
+		},
+		{
+			"name": "res-shopping_png",
+			"type": "image",
+			"url": "assets/res-shopping.png"
+		},
+		{
+			"name": "res-sports_png",
+			"type": "image",
+			"url": "assets/res-sports.png"
+		},
+		{
+			"name": "res-reading_png",
+			"type": "image",
+			"url": "assets/res-reading.png"
+		},
+		{
+			"name": "res-eating_png",
+			"type": "image",
+			"url": "assets/res-eating.png"
+		},
+		{
+			"name": "res-other_png",
+			"type": "image",
+			"url": "assets/res-other.png"
+		},
+		{
+			"name": "res-circle_png",
+			"type": "image",
+			"url": "assets/res-circle.png"
+		},
+		{
+			"name": "more-btn_png",
+			"type": "image",
+			"url": "assets/more-btn.png"
+		},
+		{
+			"name": "save-image_png",
+			"type": "image",
+			"url": "assets/save-image.png"
+		}
+	]
+}

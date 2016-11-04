@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>谁偷走了你的时间</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <link rel="stylesheet" href="http://event.yindudigital.com/public/weui.css" type='text/css'>
+    <style>
+        html,
+        body {
+            -ms-touch-action: none;
+            background: #f9f5f2;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            height: 100%;
+        }
+        
+        .save-tips {
+            position: absolute;
+            width: 21.25%;
+            left: 4.8%;
+            bottom: 15.4%;
+            display: none;
+        }
+        
+        #save-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            display: none;
+            top: 0;
+            left: 0;
+            z-index: 999;
+        }
+        
+        #last-btn {
+            display: none;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            bottom: 0;
+        }
+        
+        .egret-player {
+            margin: auto;
+            width: 100%;
+            height: 100%;
+        }
+        
+        @media screen and (max-height: 320px) {
+            .egret-player {
+                height: 200%;
+            }
+        }
+    </style>
+
+    <!--这个标签为通过egret提供的第三方库的方式生成的 javascript 文件。删除 modules_files 标签后，库文件加载列表将不会变化，请谨慎操作！-->
+    <!--modules_files_start-->
+	<script egret="lib" src="libs/modules/egret/egret.min.js"></script>
+	<script egret="lib" src="libs/modules/egret/egret.web.min.js"></script>
+	<script egret="lib" src="libs/modules/game/game.min.js"></script>
+	<script egret="lib" src="libs/modules/game/game.web.min.js"></script>
+	<script egret="lib" src="libs/modules/res/res.min.js"></script>
+	<script egret="lib" src="libs/modules/tween/tween.min.js"></script>
+	<!--modules_files_end-->
+
+    <!--这个标签为不通过egret提供的第三方库的方式使用的 javascript 文件，请将这些文件放在libs下，但不要放在modules下面。-->
+    <!--other_libs_files_start-->
+    <!--other_libs_files_end-->
+
+    <!--这个标签会被替换为项目中所有的 javascript 文件。删除 game_files 标签后，项目文件加载列表将不会变化，请谨慎操作！-->
+    <!--game_files_start-->
+	<script src="main.min.js"></script>
+	<!--game_files_end-->
+    <script src="//wximg.qq.com/wxp/libs/wxmoment/0.0.4/wxmoment.min.js"></script>
+</head>
+
+<body>
+
+    <div id='canvas' class="egret-player" data-entry-class="Main" data-orientation="auto" data-scale-mode="exactFit" data-frame-rate="30" data-content-width="640" data-content-height="1000" data-show-paint-rect="false" data-multi-fingered="2" data-show-fps="false"
+        data-show-log="false" data-show-fps-style="x:0,y:0,size:12,textColor:0x000000,bgAlpha:0.9">
+    </div>
+    <img src='./resource/assets/save-image.png' class='save-tips' id='save-tips' />
+    <img id='save-image' />
+
+    <div class="js_dialog" id="iosDialog2" style="opacity: 1;display: none;">
+        <div class="weui-mask"></div>
+        <div class="weui-dialog">
+            <div class="weui-dialog__bd">输入框不能为空</div>
+            <div class="weui-dialog__ft">
+                <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" id='sure'>确定</a>
+            </div>
+        </div>
+    </div>
+
+    <img src="./resource/assets/more-btn.png" id="last-btn" />
+</body>
+<!-- <script type="text/javascript" src="http://event.yindudigital.com/cache/wx_config.php" id="c1"></script>-->
+
+
+<script>
+    new WxMoment.OrientationTip();
+    /**
+     * {
+     * "renderMode":, //引擎渲染模式，"canvas" 或者 "webgl"
+     * "audioType": "" //使用的音频类型，0:默认，1:qq audio，2:web audio，3:audio
+     * }
+     **/
+    egret.runEgret({
+        renderMode: "canvas",
+        audioType: 0
+    });
+
+    var url = window.location.href;
+    var base = url.slice(0, url.lastIndexOf("/") + 1);
+    console.log($("#sure"));
+    $("#sure").on("touchend", function() {
+        $("#iosDialog2").hide();
+    })
+    wxdatas = {
+        appid: '',
+        img_url: base + 'resource/assets/share.jpg',
+        img_width: '120',
+        img_height: '120',
+        link: base,
+        desc: '谁偷走了你的时间',
+        title: '谁偷走了你的时间',
+        url: ''
+    }
+
+    function closeOrient() {
+        $("#orientLayer").hide();
+    }
+
+    function lastBtn() {
+        $("#last-btn").show();
+    }
+    var ua = (window.navigator.userAgent).toLowerCase();
+    var isWeixin = true || /micromessenger/.test(ua);
+    window.version = isWeixin ? "weixin" : "weibo"; //默认是微信weixin  微博weibo
+
+    function error() {
+        $("#iosDialog2").show();
+    }
+    /*微信弹出保存对话框*/
+    function showTips(base64) {
+        $("#save-tips").show();
+        $("#save-image").attr('src', base64).show();
+
+    }
+
+    /*分享至微博*/
+    var top = window.screen.height / 2 - 250;
+    var left = window.screen.width / 2 - 300;
+    var title = "#谁偷走了你的时间#";
+    var pic = "";
+
+    function weibo() {
+        rLink = base;
+        window.open("http://service.weibo.com/share/share.php?pic=" + encodeURIComponent(pic) + "&title=" +
+            encodeURIComponent(title.replace(/&nbsp;/g, " ").replace(/<br \/>/g, " ")) + "&url=" + encodeURIComponent(rLink),
+            "分享至新浪微博",
+            "height=500,width=600,top=" + top + ",left=" + left + ",toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no");
+    }
+</script>
+
+</html>

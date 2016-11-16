@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: #ccc;
+      }
+      .slide {
+        margin: 100px auto;
+        width: 80px;
+        height: 40px;
+        border-radius: 40px;
+        position: relative;;
+      }
+      .slide:after {
+        position: absolute;
+        top:0;
+        right: 0;
+        content: "";
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        -webkit-transition:all .5s linear;
+      }
+      .slide.on:after{
+        background: #fff;
+      }
+      .slide.on {
+        background: #9df9ff;
+      }
+      .slide.off:after{
+        background: #9df9ff;
+      }
+      .slide.off {
+        background: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide on"></div>
+    <script type="text/javascript">
+      function $(el){
+        
+      }
+    </script>
+  </body>
+</html>

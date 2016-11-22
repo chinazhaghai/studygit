@@ -1,17 +1,532 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-sale=1,user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>首页</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-sale=1,user-scalable=no"/>
-    <link rel="stylesheet" href="./css/bootstrap.min.css" type="text/css"/>
-    <link rel="stylesheet" href="./css/site.css" type="text/css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/site.css" type="text/css"/>
+
     <!--[if lt IE 9]>
     <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="js/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/jquery.fullPage.js"></script>
+    <script src="js/jquery.slimscroll.min.js"></script>
+    <script src="./js/slide.js"></script>
+    <script src="js/web.js"></script>
 </head>
-<body class="gray">
+<body class="body">
+
+<!--导航大战开始O(∩_∩)O~~-->
+<div class="container-fluid navbar-wrapper reverse">
+    <nav class="navbar navbar-home">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#cofounderslab-navbar" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="icon-login icon-login-sm">
+                    <img src="./img/icon-wx.png"/>
+                    <img src="./img/icon-sina.png"/>
+                </div>
+                <a class="navbar-brand" href="/">
+                    <img class="ar-logo" src="img/icon-ar-index.png" alt="爱耳">
+                </a>
+            </div>
+            <div class="navbar-collapse collapse" id="cofounderslab-navbar" aria-expanded="false" style="height: 1px;">
+                <div class="icon-login">
+                    <img src="./img/icon-wx.png"/>
+                    <img src="./img/icon-sina.png"/>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="navbar-item">
+                        <a href="#" class="navbar-title">首<em></em>页</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a class="navbar-item-title navbar-title">声学咨询</a>
+                        <div class="navbar-sub-nav">
+                            <div class="row spilt">
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="navbar-sub-title">
+                                        <a>·声学咨询</a>
+                                        <a>·专业服务领域</a>
+                                        <a>·主要服务行业</a>
+                                        <a>·声学顾问服务</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="thumb">
+                                        <img src="img/navbar-thumb.jpg"/>
+                                    </div>
+                                    <div class="title">专注声学·为您解答</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="navbar-item">
+                        <a class="navbar-item-title navbar-title">解决方案</a>
+                        <div class="navbar-sub-nav">
+                            <div class="row spilt">
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="navbar-sub-title">
+                                        <a>·声学咨询</a>
+                                        <a>·专业服务领域</a>
+                                        <a>·主要服务行业</a>
+                                        <a>·声学顾问服务</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="thumb">
+                                        <img src="img/navbar-thumb.jpg"/>
+                                    </div>
+                                    <div class="title">专注声学·为您解答</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="navbar-item">
+                        <a class="navbar-item-title navbar-title">声学产品</a>
+                        <div class="navbar-sub-nav">
+                            <div class="row spilt">
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="navbar-sub-title">
+                                        <a>·声学咨询</a>
+                                        <a>·专业服务领域</a>
+                                        <a>·主要服务行业</a>
+                                        <a>·声学顾问服务</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="thumb">
+                                        <img src="img/navbar-thumb.jpg"/>
+                                    </div>
+                                    <div class="title">专注声学·为您解答</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="navbar-item">
+                        <a class="navbar-item-title navbar-title">爱耳案列</a>
+                        <div class="navbar-sub-nav">
+                            <div class="row spilt">
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="navbar-sub-title">
+                                        <a>·声学咨询</a>
+                                        <a>·专业服务领域</a>
+                                        <a>·主要服务行业</a>
+                                        <a>·声学顾问服务</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="thumb">
+                                        <img src="img/navbar-thumb.jpg"/>
+                                    </div>
+                                    <div class="title">专注声学·为您解答</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="navbar-item">
+                        <a class="navbar-item-title navbar-title">咨询中心</a>
+                        <div class="navbar-sub-nav">
+                            <div class="row spilt">
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="navbar-sub-title">
+                                        <a>·声学咨询</a>
+                                        <a>·专业服务领域</a>
+                                        <a>·主要服务行业</a>
+                                        <a>·声学顾问服务</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="thumb">
+                                        <img src="img/navbar-thumb.jpg"/>
+                                    </div>
+                                    <div class="title">专注声学·为您解答</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="navbar-item">
+                        <a class="navbar-item-title navbar-title">关于我们</a>
+                        <div class="navbar-sub-nav navbar-position-right">
+                            <div class="row spilt">
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="navbar-sub-title">
+                                        <a>·声学咨询</a>
+                                        <a>·专业服务领域</a>
+                                        <a>·主要服务行业</a>
+                                        <a>·声学顾问服务</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="thumb">
+                                        <img src="img/navbar-thumb.jpg"/>
+                                    </div>
+                                    <div class="title">专注声学·为您解答</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<!--导航大战结束了~~~~(>_<)~~~~-->
+
+
+<div id="fullpage" class="main main-bg index-main">
+    <div class="block index-block1 section">
+        <div class="index-banner-wrapper">
+            <div class="index-banner-box swiper-container">
+                <div class="index-banner-list clr swiper-wrapper">
+                    <div class="index-banner-item swiper-item">
+                        <img src="./img/index-banner.jpg"/>
+                    </div>
+                    <div class="index-banner-item swiper-item">
+                        <img src="./img/advice-banner.jpg"/>
+                    </div>
+                    <div class="index-banner-item swiper-item">
+                        <img src="./img/about-banner.jpg"/>
+                    </div>
+                    <div class="index-banner-item swiper-item">
+                        <img src="./img/example-banner.jpg"/>
+                    </div>
+                </div>
+            </div>
+            <div class="pre-btn btn"></div>
+            <div class="next-btn btn"></div>
+        </div>
+        <img src="./img/index-block2.png" class="index-img"/>
+    </div>
+    <!--百叶窗-->
+    <div class="block index-block2 section">
+        <div class="window">
+            <div class="window-item active animate">
+                <img src="./img/window-item-01.jpg"/>
+                <div class="title">工矿企业</div>
+                <a href="#" class="info info7">
+                    <div class="animating-box">
+                        <div class="border-line border-line1"></div>
+                        <div class="border-line border-line2"></div>
+                        <div class="border-line border-line3"></div>
+                        <div class="border-line border-line4"></div>
+                    </div>
+                    <div class="text text-box7">
+                        <p class="text1">工矿企业</p>
+                        <p class="text2">让生产更安全</p>
+                        <img src="./img/icon-machine-lg.png" class="img icon-machine"/>
+                        <em></em>
+                        <span class="btn-icon4">了解更多</span>
+                    </div>
+                </a>
+            </div>
+            <div class="window-item">
+                <img src="./img/window-item-01.jpg"/>
+                <div class="title">商业建筑</div>
+                <a href="#" class="info info7">
+                    <div class="animating-box">
+                        <div class="border-line border-line1"></div>
+                        <div class="border-line border-line2"></div>
+                        <div class="border-line border-line3"></div>
+                        <div class="border-line border-line4"></div>
+                    </div>
+                    <div class="text text-box7">
+                        <p class="text1">商业建筑</p>
+                        <p class="text2">创造自在舒适空间</p>
+                        <img src="./img/icon-building-lg.png" class="img icon-building"/>
+                        <em></em>
+                        <span class="btn-icon4">了解更多</span>
+                    </div>
+                </a>
+            </div>
+            <div class="window-item">
+                <img src="./img/window-item-01.jpg"/>
+                <div class="title">影院酒吧</div>
+                <a href="#" class="info info7">
+                    <div class="animating-box">
+                        <div class="border-line border-line1"></div>
+                        <div class="border-line border-line2"></div>
+                        <div class="border-line border-line3"></div>
+                        <div class="border-line border-line4"></div>
+                    </div>
+                    <div class="text text-box7">
+                        <p class="text1">影院酒吧</p>
+                        <p class="text2">营造高音质独享世界</p>
+                        <img src="./img/icon-movie-lg.png" class="img icon-movie"/>
+                        <em></em>
+                        <span class="btn-icon4">了解更多</span>
+                    </div>
+                </a>
+            </div>
+            <div class="window-item">
+                <img src="./img/window-item-01.jpg"/>
+                <div class="title">交通国防</div>
+                <a href="#" class="info info7">
+                    <div class="animating-box">
+                        <div class="border-line border-line1"></div>
+                        <div class="border-line border-line2"></div>
+                        <div class="border-line border-line3"></div>
+                        <div class="border-line border-line4"></div>
+                    </div>
+                    <div class="text text-box7">
+                        <p class="text1">交通国防</p>
+                        <p class="text2">共建安宁道路交通</p>
+                        <img src="./img/icon-train-lg.png" class="img icon-train"/>
+                        <em></em>
+                        <span class="btn-icon4">了解更多</span>
+                    </div>
+                </a>
+            </div>
+            <div class="window-item">
+                <img src="./img/window-item-01.jpg"/>
+                <div class="title">能源电力 </div>
+                <a href="#" class="info info7">
+                    <div class="animating-box">
+                        <div class="border-line border-line1"></div>
+                        <div class="border-line border-line2"></div>
+                        <div class="border-line border-line3"></div>
+                        <div class="border-line border-line4"></div>
+                    </div>
+                    <div class="text text-box7">
+                        <p class="text1">能源电力</p>
+                        <p class="text2">打造环保电力行业标杆</p>
+                        <img src="./img/icon-wind-lg.png" class="img icon-wind"/>
+                        <em></em>
+                        <span class="btn-icon4">了解更多</span>
+                    </div>
+                </a>
+            </div>
+            <div class="window-item">
+                <img src="./img/window-item-01.jpg"/>
+                <div class="title">演艺建筑</div>
+                <a href="#" class="info info7">
+                    <div class="animating-box">
+                        <div class="border-line border-line1"></div>
+                        <div class="border-line border-line2"></div>
+                        <div class="border-line border-line3"></div>
+                        <div class="border-line border-line4"></div>
+                    </div>
+                    <div class="text text-box7">
+                        <p class="text1">演艺建筑</p>
+                        <p class="text2">让声乐盛宴触手可及</p>
+                        <img src="./img/icon-action-lg.png" class="img icon-action"/>
+                        <em></em>
+                        <span class="btn-icon4">了解更多</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="block index-block3 section">
+        <img src="./img/index-block3.png" class="index-block3-banner"/>
+        <div class="calendar index-block3-list">
+            <div class="row index-block3-row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12  index-block3-item">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="col-box">
+                                <img src="./img/index-block3-bg.png"/>
+                                <div class="desc">
+                                    <div class="desc-box">
+                                        <div class="category-title">声学产品</div>
+                                        <div class="category-link">全部产品</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="col-box">
+                                <img src="./img/index-thumb-02.jpg"/>
+                                <div class="desc alpha">
+                                    <div class="desc-box ">
+                                        <div class="desc-title">影院防火布艺<br/>软包吸音材料</div>
+                                        <div class="desc-content">布艺吸声板备有多种颜色及图案的饰面布可供选择，也可由客户提供饰面布。并可根据声学装修或业主的要求，调整饰面布、框的材质。</div>
+                                        <a class="desc-link">查看详情</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 index-block3-item">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="col-box">
+                                <img src="./img/index-thumb-03.jpg"/>
+                                <div class="desc alpha">
+                                    <div class="desc-box">
+                                        <div class="desc-title">影院防火布艺<br/>软包吸音材料</div>
+                                        <div class="desc-content">布艺吸声板备有多种颜色及图案的饰面布可供选择，也可由客户提供饰面布。并可根据声学装修或业主的要求，调整饰面布、框的材质。</div>
+                                        <a class="desc-link">查看详情</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="col-box">
+                                <img src="./img/index-thumb-03.jpg"/>
+                                <div class="desc alpha">
+                                    <div class="desc-box">
+                                        <div class="desc-title">影院防火布艺<br/>软包吸音材料</div>
+                                        <div class="desc-content">布艺吸声板备有多种颜色及图案的饰面布可供选择，也可由客户提供饰面布。并可根据声学装修或业主的要求，调整饰面布、框的材质。</div>
+                                        <a class="desc-link">查看详情</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="block index-block4 section">
+        <div class="calendar index-block4-list">
+            <div class="row index-block4-row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 index-block4-item">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="desc">
+                                <div class="desc-box">
+                                    <div class="desc-time">2016/10/08</div>
+                                    <div class="desc-title">赢胜“奥运”：赢胜人洪荒之力大比<br/>拼烈日炎炎向坚守一线的赢胜人致敬</div>
+                                    <div class="desc-content">俗话说“炎夏三伏似火燎，生灵万物如汤煮。”可如今立秋已过，三伏天仍未撤，“秋老虎”持续发威。赢胜（江苏）节能有限公司同仁在这样的炎炎烈日下，为了给予客户最佳最及时的服务，释放着他们的“洪荒之力”！</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <img src="./img/index-thumb-01.jpg"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 index-block4-item">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="desc blue">
+                                <div class="desc-box">
+                                    <div class="desc-time">2016/10/08</div>
+                                    <div class="desc-title">赢胜“奥运”：赢胜人洪荒之力大比<br/>拼烈日炎炎向坚守一线的赢胜人致敬</div>
+                                    <div class="desc-content">俗话说“炎夏三伏似火燎，生灵万物如汤煮。”可如今立秋已过，三伏天仍未撤，“秋老虎”持续发威。赢胜（江苏）节能有限公司同仁在这样的炎炎烈日下，为了给予客户最佳最及时的服务，释放着他们的“洪荒之力”！</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <img src="./img/index-thumb-04.jpg"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="./img/index-block4.png"/>
+        <div class="footer">
+            <div class="container nav-list">
+                <div class="row">
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                        <div class="box">
+                            <div class="box-title">声学咨询</div>
+                            <div class="box-list">
+                                <div class="box-item">·声学咨询</div>
+                                <div class="box-item">·专业服务领域</div>
+                                <div class="box-item">·主要服务行业</div>
+                                <div class="box-item">·声学顾问服务</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                        <div class="box">
+                            <div class="box-title">解决方案</div>
+                            <div class="box-list">
+                                <div class="box-item">·简 介</div>
+                                <div class="box-item">·行业综述</div>
+                                <div class="box-item">·经典案例</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                        <div class="box">
+                            <div class="box-title">声学产品</div>
+                            <div class="box-list">
+                                <div class="box-item">·系列分类</div>
+                                <div class="box-item">·产品类别</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                        <div class="box">
+                            <div class="box-title">爱耳案例</div>
+                            <div class="box-list">
+                                <div class="box-item">·渠道与伙伴 </div>
+                                <div class="box-item">·成功案例</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                        <div class="box">
+                            <div class="box-title">资讯中心</div>
+                            <div class="box-list">
+                                <div class="box-item">·实施服务</div>
+                                <div class="box-item">·后期支持</div>
+                                <div class="box-item">·声学知识库</div>
+                                <div class="box-item">·资料下载</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                        <div class="box">
+                            <div class="box-title">关于我们</div>
+                            <div class="box-list">
+                                <div class="box-item">·公司简介</div>
+                                <div class="box-item">·服务战略</div>
+                                <div class="box-item">·团队风采</div>
+                                <div class="box-item">·公司新闻</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">Copyright © 2016  京ICP备10046444号 | 京公网安备11010802020134号 | 京ICP证110507号</div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<script>
+    $(function(){
+        var win_w = $(window).width();
+        if (win_w < 1024) {
+           $(".block").height("auto");
+            $("body").removeClass("body");
+        };
+        $(window).on("resize",function(){
+            window.location.reload();
+        })
+    });
+</script>
 
 </body>
 </html>
+
+

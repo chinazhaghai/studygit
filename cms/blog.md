@@ -120,3 +120,11 @@ CREATE TABLE `message` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ```
+
+# 第三天
++ 前台布局
+  * bootstrap.css
+  * jquery.min.js
+  * bootstrap.min.js
+  * vue.min.js 实现前后台数据分离
+  * vue-router.min.js 路由控制

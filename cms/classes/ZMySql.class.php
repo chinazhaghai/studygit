@@ -1,17 +1,16 @@
 <?php
-namespace cms\classes;
 class ZMySql{
   private static $_instance = null;
   private static $_conn = null;
   private function __construct(){}
   public  function getInstance(){
-    if($_instance==null){
+    if(self::$_instance==null){
       self::$_instance = new ZMySql();
     }
     return self::$_instance;
   }
   public function connect($host,$username,$password,$port = 3306){
-    self::$_conn = mysql_connect($host,$username,$password,$port);
+    $res = self::$_conn = mysql_connect($host,$username,$password,$port);
     return $this;
   }
   public function selectDb($db){

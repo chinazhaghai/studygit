@@ -1,0 +1,93 @@
+html {
+  width: 100%;
+  height: 100%;
+}
+body {
+  width: 100%;
+  min-height: 100%;
+  background: #eeeeee;
+}
+a,
+a:hover,
+a:visited,
+a:active {
+  transition:all 500ms linear;
+  color: inherit;
+  text-decoration: none;
+}
+.bg-white {
+  background-color: white;
+}
+.top-container {
+    margin-bottom: 20px;
+    background: url("../images/index-banner.jpg") top center no-repeat;
+    background-size: cover;
+}
+.banner-container{
+  width: 100%;
+  min-height: 400px;
+
+
+}
+.main {
+  width: 100%;
+  padding: 20px 0;
+}
+.article-list {
+  width: 100%;
+  padding:20px;
+}
+.article-item {
+  margin-bottom: 40px;
+}
+.article-title {
+  position: relative;
+  font-size:34px;
+  line-height: 1.5;
+  color: #3ab882;
+  font-weight: bold;
+}
+.article-title:after {
+  width: 6px;
+  height: 100%;
+  position: absolute;
+  content: "";
+  background-color: #3ab882;
+  left: -35px;
+  top: 0;
+}
+.article-info {
+  margin-top: 20px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #ccc;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #ccc;
+}
+.article-info span {
+  margin: 0 10px;
+}
+.article-desc {
+  padding:20px 0;
+  font-size: 16px;
+  line-height: 30px;
+}
+.link {
+  float: right;
+  padding: 10px 14px;
+  background: #3ab882;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 4px;
+}
+.link:hover {
+  color: #35495e;
+  background-color: #
+}
+.empty-tips {
+  width: 100%;
+  font-size: 24px;
+  line-height: 1.5;
+  text-align: center;
+  color: #3ab882;
+}

@@ -6,7 +6,7 @@ var Index = Vue.extend({
         <div class="article-info">
           作者:<span>{{article.author}}</span>日期:<span>{{article.time}}</span>
         </div>
-        <div class="article-desc">{{article.desc}}</div>
+        <div class="article-desc">{{article.desc}}...</div>
         <router-link :to="article.link" class="link">阅读全文</router-link>
       </div>
       <div class="empty-tips" v-if="empty">很抱歉没有发布文章</div>
@@ -24,13 +24,15 @@ var Index = Vue.extend({
 
   },
   created:function(){
+    var self = this;
     $.ajax({
       url:"./public/js/ajax.php",
       type:"post",
       data:{cmd:"getArticle"},
       dataType:"json",
       success:function(data){
-        console.log(data);
+        self.articles = data;
+        console.log(self.articles);
       }
     });
   }

@@ -128,3 +128,9 @@ CREATE TABLE `message` (
   * bootstrap.min.js
   * vue.min.js 实现前后台数据分离
   * vue-router.min.js 路由控制
+
+
+# 第四天
++ 后台布局
+  * 将所有的功能都进行模块化
+  

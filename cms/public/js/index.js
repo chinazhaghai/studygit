@@ -21,24 +21,47 @@ var Index = Vue.extend({
 
   beforeRouteEnter:function(to,from,next){
     var cid = this.$route.params.cid;
-
   },
   created:function(){
     var self = this;
     $.ajax({
       url:"./public/js/ajax.php",
       type:"post",
-      data:{cmd:"getArticle"},
+      data:{cmd:"getList"},
       dataType:"json",
       success:function(data){
-        self.articles = data;
-        console.log(self.articles);
+        if(data){
+          self.articles = data;
+          self.empty = false;
+        }
       }
     });
   }
 });
 var Article = Vue.extend({
-  template:"<div></div>"
+  template:'<div class="article"><h1 class="page-title ">{{article.title}}</h1><div class="artcile-info">作者:<span>{{article.author}}</span>发布时间:<span>{{article.time}}</span></div><div v-html="article.content"></div></div>',
+  data:function(){
+    return {
+      article:[]
+    }
+  },
+  beforeRouteEnter:function(to,from,next){
+  },
+  created:function(){
+    var params = this.$route.params;
+    var cid = params.cid;
+    var id = params.id;
+    var self = this;
+    $.ajax({
+      url:"./public/js/ajax.php",
+      type:"post",
+      data:{cmd:"getArticle",cid:cid,id:id},
+      dataType:"json",
+      success:function(data){
+        self.article = data;
+      }
+    });
+  }
 });
 var router = new VueRouter({
   routes:[
@@ -48,22 +71,29 @@ var router = new VueRouter({
     },
     {
       path:"/category/:cid",
-      component:Index,
-      children:[
-        {
-          path:":id",
-          componetn:Article
-        }
-      ]
+      component:Index
+    },
+    {
+      path:"/category/:cid/:id",
+      component:Article
     }
   ]
 })
 var vm = new Vue({
   created:function(){
-    //
+    var self = this;
+    $.ajax({
+      url:"./public/js/ajax.php",
+      type:"post",
+      data:{cmd:"getMenu"},
+      dataType:"json",
+      success:function(data){
+        self.navbars = data;
+      }
+    });
   },
   data:{
-    navbars:[{link:'/category/1',name:"js"}]
+    navbars:[]
   },
   router:router,
   el:"#app"

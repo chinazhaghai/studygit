@@ -91,3 +91,45 @@ a:active {
   text-align: center;
   color: #3ab882;
 }
+
+.article img {
+  max-width: 100%;
+}
+.article p {
+  font-size: 16px;
+  line-height: 30px;
+  margin-bottom: 25px;
+  font-size: "微软雅黑";
+}
+.page-title {
+    color: #00b7e9;
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+.article blockquote {
+   background: #ddd;
+   padding: 15px 20px;
+   margin: 0 0 25px;
+   border-left: 5px solid #00a3cf;
+   background: #f6f6f6;
+}
+.article strong,.article b {
+    font-weight: bold;
+}
+.article h2 {
+   font-size: 1.4em;
+   color: #00a3cf;
+   font-weight: bold;
+   border-bottom: 1px solid #ddd;
+   padding-bottom: 5px;
+   margin-bottom: 15px;
+}
+.article img {
+   border: 1px solid;
+   padding: 2px;
+   background: #eee;
+   margin-left: auto;
+   margin-right: auto;
+   display: block;
+   height: auto;
+}

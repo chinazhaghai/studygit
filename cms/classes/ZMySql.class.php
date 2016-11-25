@@ -18,7 +18,8 @@ class ZMySql{
     return $this;
   }
   public function query($sql){
-    $res = mysql_query(mysql_escape_string($sql));
+    //$sql = mysql_escape_string($sql);
+    $res = mysql_query($sql);
     return $res;
   }
   public function getAll($sql,$mode = MYSQL_ASSOC){

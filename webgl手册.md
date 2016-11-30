@@ -77,7 +77,7 @@ WebGL学习整理
 </html>
 ```
 
-# 存储限定符 attribute
+# 存储限定符 attribute 顶点着色器
 + attribute vec4 variable
 + gl.getArributeLocation(gl.program,variable);
 + 赋值 gl.vertexAttrib3f(variable,0.0,0.0,0.0); 或者 gl.vertexAttrib4f(variable,0.0,0.0,0.0,0.0);
@@ -163,3 +163,8 @@ WebGL学习整理
 
 
 ```
+
+# 片元着色器 uniform
++ uniform vec4 u_uniform
++ var u_uniform = gl.getUniformLocation(program,"u_uniform");
++ gl.uniform4f(u_uniform,1,1,1,1);

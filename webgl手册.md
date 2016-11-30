@@ -168,3 +168,21 @@ WebGL学习整理
 + uniform vec4 u_uniform
 + var u_uniform = gl.getUniformLocation(program,"u_uniform");
 + gl.uniform4f(u_uniform,1,1,1,1);
+
+# 创建多边形
++ 知识点 缓冲区
++ 创建缓冲区 gl.createBuffer();
++ 绑定缓存区 gl.bindBuffer(gl.ARRAY_BUFFER,vertexBuffer);
++ 写入数据   gl.bufferData(gl.ARRAY_BUFFER,vertices);
++ 将缓冲器数据分配给a_Position对象 gl.vertexAttribPointer(a_Position,2,gl.FLOAT,false,0,0);
++ 连接a_Position变量与分配给她的缓冲区对象 gl.enableVertexAttribArray(a_Position);
+```
+var vertices = new Float32Array([0.0,0.5,-.5,-.5,.5,-.5]);
+var n = 3;
+var vertexBuffer = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER,vertexBuffer);
+gl.bufferData(gl.ARRAY_BUFFER,vertices,gl.STATIC_DRAW);
+gl.vertexAttribPointer(a_Position,2,gl.FLOAT,false,0,0);
+gl.enableVertexAttribArray(a_Position);
+gl.drawArrays(gl.POINTS,0,3);
+```

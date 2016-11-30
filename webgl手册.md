@@ -11,6 +11,7 @@ WebGL学习整理
 + 设置 顶点着色
 + 设置 片元着色
 + 创建着色器
++ 创建程序对象
 + 绑定着色器
 + 绘制点
 ```
@@ -63,6 +64,7 @@ WebGL学习整理
     gl.shaderSource(fshader,FSHADER_SOURCE);
     gl.compileShader(fshader);
 
+    //创建程序对象
     var program = gl.createProgram();
     gl.attachShader(program,vshader);
     gl.attachShader(program,fshader);
@@ -74,3 +76,9 @@ WebGL学习整理
   </script>
 </html>
 ```
+
+# 存储限定符 attribute
++ attribute vec4 variable
++ gl.getArributeLocation(gl.program,variable);
++ 赋值 gl.vertexAttrib3f(variable,0.0,0.0,0.0); 或者 gl.vertexAttrib4f(variable,0.0,0.0,0.0,0.0);
++

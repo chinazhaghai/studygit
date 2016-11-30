@@ -177,12 +177,58 @@ WebGL学习整理
 + 将缓冲器数据分配给a_Position对象 gl.vertexAttribPointer(a_Position,2,gl.FLOAT,false,0,0);
 + 连接a_Position变量与分配给她的缓冲区对象 gl.enableVertexAttribArray(a_Position);
 ```
-var vertices = new Float32Array([0.0,0.5,-.5,-.5,.5,-.5]);
-var n = 3;
-var vertexBuffer = gl.createBuffer();
-gl.bindBuffer(gl.ARRAY_BUFFER,vertexBuffer);
-gl.bufferData(gl.ARRAY_BUFFER,vertices,gl.STATIC_DRAW);
-gl.vertexAttribPointer(a_Position,2,gl.FLOAT,false,0,0);
-gl.enableVertexAttribArray(a_Position);
-gl.drawArrays(gl.TRIANGLES,0,3);
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>webGL 学习教程三</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+  </body>
+  <script type="text/javascript">
+    var canvas  = document.getElementById("canvas");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    var gl = canvas.getContext("expeimental-webgl") || canvas.getContext("webgl");
+    gl.clearColor(0,0,0,1);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+
+    var VSHADER_SOURCE ="attribute vec4 a_Position;attribute float a_PointSize;void main(){gl_Position = a_Position;/*gl_PointSize = a_PointSize;*/}";
+    var FSHADER_SOURCE ="void main(){gl_FragColor = vec4(1.0,0.0,0.0,1.1);}" ;
+
+    var vshader = gl.createShader(gl.VERTEX_SHADER);
+    gl.shaderSource(vshader,VSHADER_SOURCE);
+    gl.compileShader(vshader);
+    var fshader = gl.createShader(gl.FRAGMENT_SHADER);
+    gl.shaderSource(fshader,FSHADER_SOURCE);
+    gl.compileShader(fshader);
+
+
+    var program = gl.createProgram();
+    gl.attachShader(program,vshader);
+    gl.attachShader(program,fshader);
+    gl.linkProgram(program);
+    gl.useProgram(program);
+
+
+    var a_Position = gl.getAttribLocation(program,'a_Position');
+    ///三角形
+    var vertices = new Float32Array([0.0,0.5,-.5,-.5,.5,-.5]);
+    var n = 3;
+    var vertexBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER,vertexBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER,vertices,gl.STATIC_DRAW);
+    gl.vertexAttribPointer(a_Position,2,gl.FLOAT,false,0,0);
+    gl.enableVertexAttribArray(a_Position);
+    gl.drawArrays(gl.TRIANGLES,0,3);
+  </script>
+</html>
+
 ```

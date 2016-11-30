@@ -8,9 +8,12 @@
   $db->connect("localhost","root","");
   $db->selectDb("blog");
   $db->query("set names utf8");
-
+  function POSTD($val){
+    return (isset($_POST[$val]) && ereg("^[0-9]+$",$_POST[$val]))?$val:0;
+  }
   $cmd = $_POST['cmd'];
   switch($cmd){
+    // 前台获取 菜单栏
     case 'getMenu':
       $res = $db->getAll("query * from category");
       foreach ($res as $key => $value) {
@@ -20,8 +23,13 @@
         $msg[] = $arr;
       }
       break;
+    // 前台获取文章列表
     case 'getList':
-      $res = $db->getAll("select * from article");
+      $sql = "select * from article";
+      if(($cid = POSTD('cid'))!=0){
+        $sql.= " where category='{$cid}'";
+      }
+      $res = $db->getAll();
       foreach ($res as $key => $value) {
         $arr = array();
         $arr['title'] = $value['title'];
@@ -48,6 +56,8 @@
         $arr['sql'] = "select * from article where category='{$cid}' and id='{$id}'";
         $msg = $arr;
       }
+      break;
+    case '':
       break;
     default:
       break;

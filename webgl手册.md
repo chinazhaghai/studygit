@@ -141,18 +141,25 @@ WebGL学习整理
     var a_Position  = gl.getAttribLocation(program,"a_Position");
     var a_PointSize = gl.getAttribLocation(program,"a_PointSize");
 
-    gl.vertexAttrib1f(a_PointSize,4.0);
-
-    canvas.onclick = function(e){
-      var x = e.clientX;
-      var y = e.clientY;
+    gl.vertexAttrib1f(a_PointSize,20.0);
+    var mouse = [];
+    canvas.addEventListener("touchmove",function(e){
+      e.preventDefault();
+      var x = e.changedTouches[0].clientX;
+      var y = e.changedTouches[0].clientY;
+      mouse.push({x:x,y:y});
       gl.clear(gl.COLOR_BUFFER_BIT);
-      gl.vertexAttrib3f(a_Position,x/window.innerWidth,y/window.innerHeight,0.0);
-      gl.drawArrays(gl.POINTS,0,1);
-    }
-    //绘制点
+      for(var i=0,len=mouse.length;i<len;i++){
+        gl.vertexAttrib3f(a_Position,2*mouse[i].x/canvas.width-1,1-2*mouse[i].y/canvas.height,0.0);
+        gl.drawArrays(gl.POINTS,0,1);
+      }
+
+
+      console.log()
+    });
 
   </script>
 </html>
+
 
 ```

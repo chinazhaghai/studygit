@@ -184,5 +184,5 @@ gl.bindBuffer(gl.ARRAY_BUFFER,vertexBuffer);
 gl.bufferData(gl.ARRAY_BUFFER,vertices,gl.STATIC_DRAW);
 gl.vertexAttribPointer(a_Position,2,gl.FLOAT,false,0,0);
 gl.enableVertexAttribArray(a_Position);
-gl.drawArrays(gl.POINTS,0,3);
+gl.drawArrays(gl.TRIANGLES,0,3);
 ```

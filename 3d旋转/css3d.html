@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <script type="text/javascript" src="css3d.min.js">
+
+    </script>
+    <script type="text/javascript" src="orienter.min.js">
+
+    </script>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: #ccc;
+        overflow: hidden;
+      }
+      div {
+        top:0;
+        left:0;
+        font-size: 0;
+          color: red;
+      }
+      .tip {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="three"></div>
+  </body>
+  <script type="text/javascript">
+    var three = document.getElementById("three");
+    var scene = new C3D.Stage();
+    scene.size(window.innerWidth,window.innerHeight).update();
+    three.appendChild(scene.el);
+    document.addEventListener("touchmove",function(e){
+      e.preventDefault();
+      return;
+    },false);
+    window.onresize = function(){
+      scene.size(window.innerWidth,window.innerHeight).update();
+    }
+    var root = new C3D.Sprite();
+    scene.addChild(root);
+    var piece = 20;
+    var width = 129;
+    var deg = 360/piece;
+    var r = parseInt(.5*width/Math.tan(Math.PI*deg*.5/180));
+    var box = new C3D.Sprite();
+    root.addChild(box);
+    for(var i= 0;i<piece;i++){
+      var plane = new C3D.Plane();
+      var g = deg*i;
+      var d2h = Math.PI*g/180;
+      plane.size(width,1170).material({image:"./img/"+(1+i)+".png",repeat: "no-repeat",
+      bothsides: !1}).position(Math.sin(d2h)*r,0,Math.cos(d2h)*r).rotation(0,180+g,0).update();
+      box.addChild(plane);
+    }
+    scene.camera.position(0,0,100).update();
+
+    //手势操作
+    var originTouchPos={
+        x: 0,
+        y: 0
+    },
+    oldTouchPos={
+        x: 0,
+        y: 0
+    },
+    newTouchPos={
+        x: 0,
+        y: 0
+    },
+    firstDir="",
+    originTime=0,
+    oldTime= 0,
+    newTime=0,
+    dx=0,
+    dy=0,
+    ax=0,
+    ay= 0,
+    time=0;
+    function onTouchStart(t){
+      firstDir = "";
+      t = t.changedTouches[0];
+      originTouchPos.x = oldTouchPos.x = newTouchPos.x = t.clientX;
+      originTouchPos.y = oldTouchPos.y = newTouchPos.y = t.clientY;
+      originTime = oldTime = newTime = Date.now(),
+      dx = dy = ax = ay = 0,
+      three.addEventListener("touchmove",onTouchMove,false);
+      three.addEventListener("touchend",onTouchEnd,false);
+    }
+    function onTouchMove(t){
+      return t = t.changedTouches[0],
+      newTouchPos.x = t.clientX,
+      newTouchPos.y = t.clientY,
+      newTime = Date.now(),
+      checkGesture(),
+      oldTouchPos.x = newTouchPos.x,
+      oldTouchPos.y = newTouchPos.y,
+      oldTime = newTime,
+      !1
+    }
+    function onTouchEnd(e){
+      newTime = Date.now();
+      var t = (newTime - oldTime) / 1e3;
+      return end(this.END, {
+          dx: dx,
+          dy: dy,
+          ax: 2 * time > t ? ax : 0,
+          ay: 2 * time > t ? ay : 0,
+          dir: firstDir
+      }),
+      three.removeEventListener("touchmove",onTouchMove,false),
+      three.removeEventListener("touchend",onTouchEnd,false),
+      !1
+    }
+    function checkGesture(){
+
+        dx = fixed2(newTouchPos.x - originTouchPos.x),
+        dy = fixed2(newTouchPos.y - originTouchPos.y),
+        ax = fixed2(newTouchPos.x - oldTouchPos.x),
+        ay = fixed2(newTouchPos.y - oldTouchPos.y),
+        time = (newTime - oldTime) / 1e3,
+        "" == firstDir && (Math.abs(ax) > Math.abs(ay) ? tfirstDir = "x" : Math.abs(ax) < Math.abs(ay) && (this.firstDir = "y")),
+        move( {
+            dx: this.dx,
+            dy: this.dy,
+            ax: this.ax,
+            ay: this.ay,
+            dir: this.firstDir
+        });
+
+    }
+    function fixed2(t) {
+        return Math.floor(100 * t) / 100
+    }
+    three.addEventListener("touchstart",onTouchStart,false);
+
+    var c = {
+        lon: 0,
+        lat: 0
+    };
+
+    function move(t){
+      c.lon = (c.lon - .2 * t.ax) % 360;
+      c.lat = Math.max(-45, Math.min(45, c.lat + .2 * t.ay));
+    }
+    function end(_obj){
+
+    }
+
+    d = {
+        lat: 0,
+        lon: 0
+    },
+    g = new Orienter;
+    g.handler = function(t) {
+        d.lat = t.lat,
+        d.lon = -t.lon
+    };
+    g.init()
+
+    requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(t) {
+        window.setTimeout(t, 1e3 / 60);
+    }
+    function animate(){
+      A = requestAnimationFrame(animate);
+      var t = (d.lon  + c.lon)%360
+        , i = .35 * (d.lat  + c.lat);
+      t - box.rotationY > 180 && (box.rotationY += 360),
+      t - box.rotationY < -180 && (box.rotationY -= 360),
+      box.rotationY += .3 * (t - box.rotationY),
+      box.rotationX += .15 * (i - box.rotationX),
+      box.updateT();
+      var n = -150 - 20 * Math.abs(t - box.rotationY);
+      root.z += .1 * (n - root.z),
+      root.updateT();
+    }
+    animate();
+
+
+  </script>
+</html>

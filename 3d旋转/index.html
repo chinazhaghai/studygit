@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      width: 2580px;
+      font-size:0;
+    }
+    </style>
+
+  </head>
+  <body>
+
+  </body>
+  <script>
+    for(var i=20;i>=1;i--){
+      var image = new Image();
+      image.src ="./img/"+i+".png";
+      document.body.appendChild(image);
+    }
+  </script>
+</html>

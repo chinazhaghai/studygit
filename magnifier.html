@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>magnifier effects</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 800px;
+        height: 800px;
+        margin: 100px auto;
+        background: red;
+        position: relative;
+      }
+      .glass {
+        width: 400px;
+        height: 400px;
+        position: absolute;
+        left:0;
+        top: 0;
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box" id="box">
+      <div class="glass" id="glass"></div>
+    </div>
+    <script>
+      var box = document.getElementById("box");
+      var box_w = box.clientWidth;
+      var box_h = box.clientHeight;
+      var glass = document.getElementById("glass");
+      var glass_w = glass.clientWidth;
+      var glass_h = glass.clientHeight;
+
+      var max_x =  box_w- glass_w;
+      var min_x =  0;
+      var max_y = box_h - glass_h;
+      var min_y = 0;
+      var box_x = box.offsetLeft;
+      var box_y = box.offsetTop;
+      box.onmousemove = function(e){
+        var cursor_x = e.clientX;
+        var cursor_y = e.clientY;
+        var glass_x  = cursor_x-box_x;
+        var glass_y = cursor_y - box_y;
+        if(glass_x<=min_x){
+          glass_x = min_x;
+        }
+        if(glass_x>=max_x){
+          glass_x = max_x
+        }
+        if(glass_y<=min_y){
+          glass_y=min_y;
+        }
+        if(glass_y>=max_y){
+          glass_y = max_y;
+        }
+        console.log();
+        glass.style.left = glass_x+"px";
+        glass.style.top = glass_y+"px";
+
+      }
+    </script>
+  </body>
+</html>

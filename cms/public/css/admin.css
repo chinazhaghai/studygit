@@ -1,0 +1,31 @@
+html {
+  width: 100%;
+  height: 100%;
+}
+body {
+  width: 100%;
+  min-height: 100%;
+  background: #eeeeee;
+}
+a,
+a:hover,
+a:visited,
+a:active {
+  transition:all 500ms linear;
+  color: inherit;
+  text-decoration: none;
+}
+.bg-white {
+  background-color: white;
+}
+.top-container {
+    margin-bottom: 20px;
+    background: url("../images/index-banner.jpg") top center no-repeat;
+    background-size: cover;
+}
+.banner-container{
+  width: 100%;
+  min-height: 400px;
+
+
+}

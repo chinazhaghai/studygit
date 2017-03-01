@@ -1,0 +1,10 @@
+<html>
+    <head>
+        <title>{$title}</title>
+    </head>
+    <body>
+    <div>{$id}</div>
+    <div>{$name}</div>
+    <div>{$address}</div>
+    </body>
+</html>

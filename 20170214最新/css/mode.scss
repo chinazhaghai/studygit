@@ -1,0 +1,433 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-size: 0;
+}
+input {
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+@function px2percent($val:0,$base:640){
+  @return ($val/$base)*100%;
+}
+@function px2rem($val:0,$base:100){
+  @return ($val/$base)+rem;
+}
+
+@mixin centerAndVertical {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform:translate3d(-50%,-50%,0);
+}
+@mixin center {
+  left: 50%;
+  -webkit-transform:translate3d(-50%,0,0);
+}
+
+@mixin fullScreen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.loading {
+  @include fullScreen ;
+  z-index: 9999;
+  background: #670c0d;
+  body.loaded & {
+    -webkit-transition:all .5s linear;
+    -webkit-transform:translate3d(0,-100%,0);
+  }
+}
+.bg {
+  background-size: 100% 100%;
+}
+.wrapper {
+  @include fullScreen;
+  .logo {
+    position: absolute;
+    width: px2percent(119);
+    top: px2percent(27,1000);
+    left: px2percent(20);
+  }
+  .page {
+    @include fullScreen;
+    -webkit-transform:translate3d(100%,0,0);
+    .curtain-left,
+    .curtain-right{
+      position: absolute;
+      width: px2percent(98);
+      height: 100%;
+      top: 0;
+    }
+    .curtain-left {
+      left: 0;
+    }
+    .curtain-right {
+      right: 0;
+    }
+    &.active {
+      -webkit-transform:translate3d(0,0,0);
+    }
+  }
+  .page1 {
+    .wall-pic {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    .flower {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+    }
+    .angle-left {
+      position: absolute;
+      width: px2percent(177);
+      left: px2percent(37);
+      top: px2percent(69,1000);
+    }
+    .angle-right {
+      position: absolute;
+      width: px2percent(212);
+      right: 0;
+      top: 0;
+    }
+    .title-box {
+      position: absolute;
+      width: 100%;
+      top: px2percent(58,1000);
+      .title {
+        display: block;
+        width:px2percent(516);
+        margin: auto;
+      }
+      .xi {
+        display: block;
+        width:px2percent(245);
+        margin: px2percent(6) auto;
+        position: relative;
+      }
+      .flow-left,
+      .flow-right {
+        bottom: 0;
+        position: absolute;
+        width: px2percent(260);
+        -webkit-transform:translate3d(0,20%,0);
+      }
+      .flow-left {
+        left: 4%;
+      }
+      .flow-right {
+        right:4%;
+      }
+
+    }
+
+    .light {
+      position: absolute;
+      width: px2percent(554);
+      left: 0;
+      right: 0;
+      top: 0;
+      margin: auto;
+    }
+    .camera {
+      position: absolute;
+      width: px2percent(133);
+      left: 0;
+      right: 0;
+      bottom: px2percent(138,1000);
+      margin: auto;
+    }
+    .btn {
+      position: absolute;
+      width: px2percent(414);
+      left: 0;
+      right: 0;
+      bottom: px2percent(111,1000);
+      margin: auto;
+    }
+    .human-right {
+      position: absolute;
+      width: px2percent(427);
+      right: 0;
+      bottom: 0;
+      .human-right-pic {
+        width: 100%;
+      }
+      .human-right-head {
+        position: absolute;
+        width: px2percent(277,427);
+        top: 0;
+        left: px2percent(115,427);
+      }
+    }
+    .human-left {
+      position: absolute;
+      width: px2percent(385);
+      left: px2percent(11);
+      bottom: 0;
+      .human-left-pic {
+        width: 100%;
+      }
+      .human-left-head {
+        position: absolute;
+        width: px2percent(184,385);
+        top: px2percent(-125,498);
+        left: px2percent(55,385);
+      }
+    }
+
+  }
+
+  .page2 {
+    .flower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: px2percent(457);
+    }
+    .light {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+    .title {
+      position: absolute;
+      top: px2percent(141,1000);
+      right: 0;
+      left: 0;
+      margin: auto;
+      width: px2percent(548);
+    }
+    .camera {
+      position: absolute;
+      width: px2percent(185);
+      right: 0;
+      bottom: px2percent(24,1000);
+    }
+    .angle-left {
+      position: absolute;
+      top: px2percent(117,1000);
+      left: 0;
+      width: px2percent(156);
+    }
+    .angle-right {
+      position: absolute;
+      top: px2percent(11,1000);
+      right: 0;
+      width: px2percent(185);
+    }
+    .btn {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: px2percent(367);
+    }
+    .btn1 {
+      bottom:px2percent(280,1000);
+    }
+    .btn2 {
+      bottom: px2percent(152,1000);
+    }
+  }
+  .page3 {
+    .piaodai {
+      position: absolute;
+      width: px2percent(503);
+      top: px2percent(130,1000);
+      left: px2percent(69)
+    }
+    .make-photo,
+    .share-btn {
+      position: absolute;
+      width: px2percent(378);
+      bottom: px2percent(97,1000);
+      left:0;
+      right: 0;
+      margin: auto;
+    }
+    .share-btn {
+      display: none;
+      width: px2percent(238);
+    }
+    .tips,
+    .save-tips {
+      position: absolute;
+      width: px2percent(232);
+      bottom: px2percent(232,1000);
+      left:0;
+      right: 0;
+      margin: auto;
+    }
+    .save-tips {
+      display: none;
+      width: px2percent(337);
+    }
+    .camera {
+      position: absolute;
+      width: px2rem(41);
+      height: px2rem(33);
+      top:px2rem(70);
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .mask1,.mask2 {opacity: 0;}
+    .uniform-box{
+      display: none;
+      &.active {
+        display: block;
+      }
+      @include fullScreen;
+      .flower {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+      }
+      .unifom-bg {
+        width: 100%;
+        height: 100%;
+      }
+      .frame {
+        position: absolute;
+        width: px2rem(550);
+        height: px2rem(451);
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: px2percent(260,1000);
+        .frame-pic {
+          width: 100%;
+          height: 100%;
+        }
+        .person {
+          position: absolute;
+          width: px2rem(493);
+          height: px2rem(354);
+          top:px2rem(70);
+          left: 0;
+          right: 0;
+          margin: auto;
+        }
+        #uniform-left-canvas,
+        .mask1 {
+          position: absolute;
+          width: px2rem(96);
+          height: px2rem(123);
+          left:px2rem(116);
+          top: px2rem(110);
+        }
+
+        #uniform-right-canvas,
+        .mask2 {
+          position: absolute;
+          width: px2rem(96);
+          height: px2rem(123);
+          left:px2rem(333);
+          top: px2rem(93);
+        }
+
+        .camera-left{
+          left:px2rem(143);
+          top: px2rem(157)
+        }
+        .camera-right{
+          left:px2rem(360);
+          top: px2rem(144)
+        }
+      }
+    }
+    .shirt-box{
+      display: none;
+      &.active {
+        display: block;
+      }
+      @include fullScreen;
+      .shirt-bg {
+        width: 100%;
+        height: 100%;
+      }
+      .frame {
+        width: px2rem(536);
+        height: px2rem(447);
+        position: absolute;
+        top:px2rem(270);
+        left: 0;
+        right: 0;
+        margin: auto;
+        background: #ee0000;
+        .shirt-frame {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+        .person {
+          position: absolute;
+          bottom:0;
+          width: px2rem(536);
+          height: px2rem(390);
+        }
+        .camera-left{
+          left:px2rem(123);
+          top: px2rem(161)
+        }
+        .camera-right{
+          left:px2rem(357);
+          top: px2rem(133);
+        }
+        #shirt-left-canvas,
+        .mask1 {
+          position: absolute;
+          width: px2rem(98);
+          height: px2rem(125);
+          left:px2rem(94);
+          top: px2rem(104);
+        }
+
+        #shirt-right-canvas,
+        .mask2 {
+          position: absolute;
+          width: px2rem(106);
+          height: px2rem(135);
+          left:px2rem(323);
+          top: px2rem(74);
+        }
+      }
+    }
+  }
+}
+.share-tips {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,.8);
+  img {
+    width: px2percent(488);
+    position: absolute;
+    right: px2percent(42);
+    top: px2percent(28,1000)
+  }
+}

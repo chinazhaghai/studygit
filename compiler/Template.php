@@ -99,6 +99,7 @@ class Quako{
 }
 $t = new Quako();
 $t->setItem('name','测试');
+$t->setItem('arr',array('data'=>array("1","2","3")));
 $t->setItem(array('id','hheda'),'测试');
-$t->setItem(array('address'=>'测试','tel'=>'1815856489','title'=>'我就是我','demo'=>'demo'));
+$t->setItem(array('address'=>'测试','tel'=>'测试号码','title'=>'我就是我','demo'=>'demo'));
 $t->show('index');

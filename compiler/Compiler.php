@@ -16,9 +16,27 @@ class Compiler{
       include_once $cache_file;
     }else{
       ob_start();
+      $T_P =array(
+        "#\{\\$([a-zA-Z_][a-zA-Z_]*)\}#",
+        "#\{loop \\$([a-zA-Z_][a-zA-Z_]*)\}#",
+        "#\{\/(loop|if)\}#",
+        "#\{\$(k|v)\}#",
+        "#\{if\s*(.*?)\s*\}#i",
+        "#\{else\}#",
+        "#\{(elseif|else if)(.*?)\}#i"
+      );
+      $T_R = array(
+        "<?php echo \"\\$\\1\";?>",
+        "<?php foreach((array)\$\\1 as \$k=>\$v){?>",
+        "<?php }?>",
+        "<?php echo \$\\1;?>",
+        "<?php if(\\1){?>",
+        "<?php }else{?>",
+        "<?php }else if(\\2){?>"
+      );
       if(!is_file($compile_file) || filemtime($compile_file)<filemtime($source_file)){
         $content = file_get_contents($source_file);
-        $content= preg_replace("#\{\\$([a-zA-Z_\x7f-\xff][a-zA-Z_\7f-\xff]*)\}#","<?php echo \"\\$\\1\";?>",$content);
+        $content= preg_replace($T_P,$T_R,$content);
         file_put_contents($compile_file,$content);
       }
       extract($data,EXTR_OVERWRITE);

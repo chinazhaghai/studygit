@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      #upload {
+        width: 200px;
+        height: 400px;
+        background: #ff0;
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="upload"></div>
+  </body>
+  <script src="./lib/UploadFile.js"></script>
+  <script>
+   var upload =   new UploadFile({selector:"#upload"});
+   upload.on("loadfinish",function(res){
+    var img = new Image;
+    img.src = res.result;
+    document.body.appendChild(img);
+   });
+  </script>
+
+</html>

@@ -1,0 +1,91 @@
+
+<div id="object-background" ng-class="{ visible: visible }" ng-click="closeObject()"></div>
+<div id="object-details" ng-class="{ visible: visible }">
+	<h2><span class="object-title-text">{{ object.subCultureName || object.cultureName }} | <span ng-bind-html="object.title"></span></span></h2>
+	<div class="share-buttons">
+		<div class="share-button-email" ng-click="share('email')"></div>
+		<div class="share-button-google" ng-click="share('google')"></div>
+		<div class="share-button-twitter" ng-click="share('twitter')"></div>
+		<div class="share-button-facebook" ng-click="share('facebook')"></div>
+	</div>
+	<div class="close-button" ng-click="closeObject()">
+	</div>
+	<div class="object-content">
+		<div class="column">
+			<div class="object-image"><img ng-src="{{ mainImageRes(object.mainImageURL) }}" ng-click="openSlideshowOverlay(object.mainImageURL)"></div>
+			<div class="object-images" ng-if="slideshowItems.length > 1">
+				
+				<div class="object-video" ng-repeat="youTubeId in object.youTubeIds" ng-click="openSlideshowOverlay(youTubeId.mainURL)" ng-style="{ background: 'url(https://img.youtube.com/vi/' + youTubeId.mainURL + '/mqdefault.jpg) 50% 50% / cover no-repeat' }">
+					<div class="object-video-play-icon">
+					</div>
+					<div class="object-video-tooltip">
+						Click to<br />view video
+					</div>
+				</div>
+
+				<div class="object-image-thumb" ng-repeat="image in images" ng-click="openSlideshowOverlay(image.mainURL)" ng-style="{ background: 'url(' + image.thumbnailURL + ') 50% 50% / cover no-repeat' }">
+					<div class="object-image-more" ng-if="image.lastThumb">{{ image.lastThumbText }}</div>
+					<div class="object-image-tooltip">Click to<br />view image</div>
+				</div>
+
+			</div>
+		</div><div class="column">
+			<div class="object-description" ng-bind-html="object.descriptionHTML">
+			</div>
+			<div class="object-description-scrollbar" ng-if="false">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 373" width="11" height="373">
+					<path fill="#E0E1DF" d="M5.5,373L5.5,373c0.3,0,0.5-0.2,0.5-0.5V0.5C6,0.2,5.8,0,5.5,0C5.2,0,5,0.2,5,0.5v372C5,372.8,5.2,373,5.5,373"/>
+					<rect x="0.5" y="8.5" fill="none" stroke="#66685D" stroke-miterlimit="10" width="10" height="10"/>
+				</svg>
+			</div>
+		</div><div class="column scrollable">
+			<div class="object-audio-clip" ng-if="object.audioClips && object.audioClips.length > 0">
+				<h3>Play audio</h3>
+				<div class="object-audio" ng-class="{ playing: audio.playing }" ng-click="playAudio(audio)" ng-repeat="audio in object.audioClips | limitTo: 1">
+					<img ng-src="{{ audio.thumbnailURL }}">
+					<audio ng-src="{{ audio.mainURL }}"></audio>
+				</div>
+			</div>
+			<div class="object-find-location" ng-if="object.mapParams">
+				<h3>From</h3>
+				<div class="object-map" ng-click="openMapOverlay()">
+					<img ng-src="{{ staticMapURL }}">
+					<div class="object-map-tooltip">
+						Click to<br>view map
+					</div>
+				</div>
+			</div>
+			<div class="object-same-category" ng-if="object.relatedNodes && object.relatedNodes.length > 0">
+				<h3>Related objects</h3>
+				<div class="object-category-thumb" ng-repeat="relatedBullet in object.relatedNodes | limitTo: 3" ng-style="{'background': 'url('+objects[relatedBullet].thumbnailURL+') 50% 50% / cover no-repeat'}">
+					<a href="/object/{{ relatedBullet }}" title="{{ objects[relatedBullet].title }}"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="object-image-zoom" class="overlay {{ currentSlideshowItem ? 'visible' : '' }} {{ currentSlideshowItemType }}" ng-click="closeSlideshowOverlay()">
+	<div class="overlay-content">
+		<h2 ng-bind-html="object.title"></h2>
+		<div class="image-container" ng-class="{ 'zoomed-in': zoomedIn, 'loading': loading }">
+			<img ng-src="{{ highResImage(currentSlideshowItem) }}" ng-load="loaded()" ng-if="currentSlideshowItemType === 'PHOTO'" ng-click="toggleZoom()">
+			<iframe frameborder="0" ng-src="{{ currentSlideshowItem }}" ng-if="currentSlideshowItemType === 'VIDEO'" allowfullscreen></iframe>
+			<div class="close-button" ng-click="closeSlideshowOverlay()"></div>
+		</div>
+		<p class="small">{{ currentSlideshowIndex + 1 }} of {{ slideshowItems.length }}</p>
+		<div class="horizontal-arrows" ng-if="slideshowItems.length > 1">
+			<div class="left-arrow" ng-click="previousSlideshowItem()"></div>
+			<div class="vertical-separator"></div>
+			<div class="right-arrow" ng-click="nextSlideshowItem()"></div>
+		</div>
+	</div>
+</div>
+
+<div id="object-map-zoom" class="overlay {{ mapZoomed ? 'visible' : '' }}">
+	<div class="object-map-zoom-content" ng-if="mapZoomed">
+		<h2 ng-bind-html="object.title"></h2>
+		<iframe src="{{ mapURL }}"></iframe>
+		<div class="close-button" ng-click="closeMapOverlay()"></div>
+	</div>
+</div>

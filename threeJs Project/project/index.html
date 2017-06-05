@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="./css/mode.css">
+    <script src="./js/three.min.js"></script>
+    <script src="./js/Detector.js"></script>
+    <script src="./js/jquery.js"></script>
+  </head>
+  <body>
+    <div id="overlays" style="cursor: default;">
+		</div>
+    <div class="indicater" id="indicater">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="note-box">
+      <div class="note">
+        <img src="./img/note0.png"/>
+      </div>
+      <div class="note">
+        <img src="./img/note1.png"/>
+      </div>
+      <div class="note">
+        <img src="./img/note2.png"/>
+      </div>
+      <div class="note">
+        <img src="./img/note3.png"/>
+      </div>
+      <div class="note">
+        <img src="./img/note4.png"/>
+      </div>
+      <div class="note">
+        <img src="./img/note5.png"/>
+      </div>
+
+    </div>
+    <!--全音符-->
+    <div class="note-show note-show-1">
+      <div></div><div></div><div></div><div></div>
+      <p>
+        <span>rond</span>
+        <span>=</span>
+        <span>2 d'une blanche,</span>
+        <span>4 d'une noire,</span>
+        <span>8 d'une croche</span>
+      </p>
+    </div>
+    <div class="note-show note-show-2">
+      <div></div><div></div><div></div><div></div>
+      <p>
+        <span>blanche</span>
+        <span>=</span>
+        <span>2 d'une noire,</span>
+        <span>4 d'une croche,</span>
+        <span>1/2 d'une rond</span>
+      </p>
+    </div>
+    <div class="note-show note-show-3">
+      <div></div><div></div><div></div><div></div>
+      <p>
+        <span>noire</span>
+        <span>=</span>
+        <span>2 d'une croche,</span>
+        <span>1/2 d'une blanche,</span>
+        <span>1/4 d'une rond</span>
+      </p>
+    </div>
+    <div class="note-show note-show-4">
+      <div></div><div></div><div></div><div></div>
+      <p>
+        <span>Croche</span>
+        <span>=</span>
+        <span>1/2 d'une noire,</span>
+        <span>1/4 d'une blanche,</span>
+        <span>1/8 d'une ronde</span>
+      </p>
+    </div>
+    <div class="note-show note-show-5">
+      <div></div><div></div><div></div><div></div>
+      <p>
+        <span>Double croche</span>
+        <span>=</span>
+        <span>1/4 d'une noire,</span>
+        <span>1/8 d'une blanche,</span>
+        <span>1/16 d'une ronde</span>
+      </p>
+    </div>
+    <div class="note-show note-show-6">
+      <div></div><div></div><div></div><div></div>
+      <p>
+        <span>triple croche</span>
+        <span>=</span>
+        <span>1/8 d'une noire,</span>
+        <span>1/16 d'une blanche,</span>
+        <span>1/32 d'une rond</span>
+      </p>
+    </div>
+    <audio src="./img/prelude.mp3" preload loop="loop" id="prelude"></audio>
+    <audio src="./img/menuet.mp3" preload loop="loop" id="menuet"></audio>
+    <audio src="./img/clairedelune.mp3" preload loop="loop" id="clairedelune"></audio>
+    <audio src="./img/passepied.mp3" preload loop="loop" id="passepied"></audio>
+    <div class="wrapper">
+      <div class="dialog">
+        <div class="prelude-box dialog-box">
+          <div class="img-prelude play-audio"></div>
+          <img src="./img/prelude.png" class="img-prelude"/>
+        </div>
+        <div class="menuet-box dialog-box">
+          <div class="img-menuet play-audio"></div>
+          <img src="./img/menuet.png" class="img-menuet"/>
+        </div>
+        <div class="clairedelune-box dialog-box">
+          <div class="img-clairedelune play-audio"></div>
+          <img src="./img/clairedelune.png" class="img-clairedelune"/>
+        </div>
+
+        <div class="passepied-box dialog-box">
+          <div class="img-passepied play-audio"></div>
+          <img src="./img/passepied.png" class="img-passepied"/>
+        </div>
+
+
+        <div class="close"></div>
+      </div>
+    </div>
+
+  </body>
+  <script type="text/javascript" src="./js/data.js"></script>
+  <script src="./js/main.js"></script>
+</html>
